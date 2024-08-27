@@ -80,9 +80,9 @@ Unit tests are implemented to ensure critical functions perform as expected, imp
 
 ## Screenshots
 
-<img src="/screenshots/ani.gif" alt="Animated GIF" width="200"/> <img src="/screenshots/onboard.jpg" alt="Home Screen" width="200"/>
+<img src="/screenshots/ani.gif" alt="Animated GIF" width="200"/> <img src="/screenshots/onboard1.jpg" alt="Home Screen" width="200"/>
 <img src="/screenshots/login.jpg" alt="Home Screen" width="200"/> <img src="/screenshots/signup1.jpg" alt="Home Screen" width="200"/> 
-<img src="/screenshots/signup2.jpg" alt="Home Screen" width="200"/> <img src="/screenshots/verication no file.jpg" alt="Home Screen" width="200"/>
+<img src="/screenshots/signup2.jpg" alt="Home Screen" width="200"/> <img src="/screenshots/verification no file.jpg" alt="Home Screen" width="200"/>
 <img src="/screenshots/verification file added.jpg" alt="Home Screen" width="200"/> <img src="/screenshots/resetpassword.jpg" alt="Home Screen" width="200"/>
 <img src="/screenshots/phonenumber.jpg" alt="Home Screen" width="200"/> <img src="/screenshots/success.jpg" alt="Home Screen" width="200"/>
 ## Submission
