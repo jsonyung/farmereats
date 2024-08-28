@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">farmereats</string>
+    <string name="facebook_app_id">869670627994387</string>
+    <string name="fb_login_protocol_scheme">fb869670627994387</string>
+    <string name="facebook_client_token">3d8ed0de9215c8e424ae7e9191d01d46</string>
+</resources>

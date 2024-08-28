@@ -1,5 +1,6 @@
 import 'package:farmereats/login/social_login.dart';
 import 'package:farmereats/signup/sign_up.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:farmereats/values/my_colors.dart';
@@ -271,7 +272,19 @@ class _LoginState extends State<Login> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20.0, vertical: 4.0),
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          UserCredential? userCredential = await _socialLogin.signInWithFacebook();
+                          if (userCredential != null) {
+                            // Navigate to the success page
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => SuccessPage()),
+                            );
+                          } else {
+                            // Optionally handle sign-in failure
+                            Fluttertoast.showToast(msg: "Sign in failed. Please try again.");
+                          }
+                        },
                         icon: Image.asset('assets/fb_icon.png'),
                       ),
                     ),

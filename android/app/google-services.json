@@ -12,7 +12,20 @@
           "package_name": "com.example.farmereats"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "198501208363-dju0cklridpka69q0jlth844mbeo6883.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.farmereats",
+            "certificate_hash": "da7e7361972b3539eff944b60af587deb28c835b"
+          }
+        },
+        {
+          "client_id": "198501208363-8v9dsm7mdhskvdvn08vghp4qfsbf17pt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCreNS5Kaxd6mKFRTKGlUatvJy6OfS1SSs"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "198501208363-8v9dsm7mdhskvdvn08vghp4qfsbf17pt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

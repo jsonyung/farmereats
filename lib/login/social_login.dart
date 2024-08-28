@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 //import 'package:sign_in_with_apple/sign_in_with_apple.dart';
@@ -6,7 +7,7 @@ class SocialLogin {
   final GoogleSignIn _googleSignIn = GoogleSignIn(
     scopes: ['email'],
   );
-
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   // Google Sign-In
   Future<bool> signInWithGoogle() async {
     try {
@@ -23,20 +24,31 @@ class SocialLogin {
     return false; // Failed to sign in
   }
 
-  // Facebook Sign-In
-  Future<void> signInWithFacebook() async {
+
+  Future<UserCredential?> signInWithFacebook() async {
     try {
+      // Attempt to log in with Facebook
       final LoginResult result = await FacebookAuth.instance.login();
+
+      // Check the result status
       if (result.status == LoginStatus.success) {
         final AccessToken accessToken = result.accessToken!;
-        // Use accessToken to authenticate with your backend or Firebase
-        print('Facebook Access Token: ${accessToken}');
+
+        // Create a credential for Firebase Auth
+        final AuthCredential credential =
+        FacebookAuthProvider.credential(accessToken.tokenString);
+
+        // Sign in with the credential
+        return await _auth.signInWithCredential(credential);
       } else {
+        // Handle login errors or cancellations
         print('Error signing in with Facebook: ${result.message}');
       }
     } catch (error) {
-      print('Error signing in with Facebook: $error');
+      // Print or log any unexpected errors
+      print('Error during Facebook sign-in: $error');
     }
+    return null;
   }
 
 /*  // Apple Sign-In
