@@ -81,6 +81,7 @@ Unit tests are implemented to ensure critical functions perform as expected, imp
 ## Screenshots
 
 <img src="/screenshots/0.gif" alt="Animated GIF" width="200"/> <img src="/screenshots/1.gif" alt="Animated GIF" width="200"/>
+ <img src="/screenshots/google.gif" alt="Animated GIF" width="200"/> <img src="/screenshots/fb.gif" alt="Animated GIF" width="200"/>
 <img src="/screenshots/2.gif" alt="Animated GIF" width="200"/><img src="/screenshots/3.gif" alt="Animated GIF" width="200"/>
 <img src="/screenshots/4.gif" alt="Animated GIF" width="200"/><img src="/screenshots/onboard1.jpg" alt="Home Screen" width="200"/>
 <img src="/screenshots/login.jpg" alt="Home Screen" width="200"/> <img src="/screenshots/signup1.jpg" alt="Home Screen" width="200"/> 
