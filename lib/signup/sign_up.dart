@@ -1,10 +1,13 @@
 import 'package:farmereats/login/login.dart';
+import 'package:farmereats/signup/success.dart';
 import 'package:farmereats/values/shared_pref.dart';
 import 'package:flutter/material.dart';
 import 'package:farmereats/values/my_colors.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
+import '../login/social_login.dart';
 import 'farm_info.dart';
 
 
@@ -19,7 +22,7 @@ class _SignUpState extends State<SignUp> with WidgetsBindingObserver {
   bool _isKeyboardVisible = false;
   final SharedPrefManager _sharedPrefManager = SharedPrefManager();
   final _formKey = GlobalKey<FormState>();
-
+  final SocialLogin _socialLogin = SocialLogin();
   // Add controllers to manage the form data
   final TextEditingController _fullNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
@@ -234,7 +237,19 @@ class _SignUpState extends State<SignUp> with WidgetsBindingObserver {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20.0, vertical: 4.0),
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          bool success = await _socialLogin.signInWithGoogle();
+                          if (success) {
+                            // Navigate to the success page
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => SuccessPage()),
+                            );
+                          } else {
+                            // Optionally handle sign-in failure
+                            Fluttertoast.showToast(msg: "Sign in failed. Please try again.");
+                          }
+                        },
                         icon: Image.asset('assets/google_icon.png'),
                       ),
                     ),
@@ -250,7 +265,19 @@ class _SignUpState extends State<SignUp> with WidgetsBindingObserver {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20.0, vertical: 4.0),
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          UserCredential? userCredential = await _socialLogin.signInWithFacebook();
+                          if (userCredential != null) {
+                            // Navigate to the success page
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => SuccessPage()),
+                            );
+                          } else {
+                            // Optionally handle sign-in failure
+                            Fluttertoast.showToast(msg: "Sign in failed. Please try again.");
+                          }
+                        },
                         icon: Image.asset('assets/fb_icon.png'),
                       ),
                     ),
